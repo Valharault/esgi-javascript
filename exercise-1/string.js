@@ -5,7 +5,7 @@ function ucfirst(chaine) {
 
 function capitalize(chaine) {
     if (typeof chaine !== "string" || chaine === "") return "";
-    let string = chaine.toLowerCase().replace('_',' ').split(" ");
+    let string = chaine.toLowerCase().split(" ");
     for (let i = 0; i < string.length; i++) {
         string[i] = ucfirst(string[i]);
     }
@@ -14,7 +14,7 @@ function capitalize(chaine) {
 
 function camelCase(chaine) {
     if (typeof chaine !== "string" || chaine === "") return "";
-    return capitalize(chaine).replace('_','').split(" ").join("");
+    return capitalize(chaine).split(" ").join("");
 }
 
 function snake_case(chaine) {
