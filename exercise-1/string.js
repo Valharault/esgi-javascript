@@ -61,7 +61,7 @@ function verlan(chaine) {
     for (const element of chaine.split(" ")) {
         output += element.split("").reverse().join("") + " ";
     }
-    return output.trim();
+    return output;
 }
 
 function yoda(chaine) {
@@ -102,7 +102,7 @@ console.log(leet("anaconda"));
 console.log(prop_access(prairie, "animal.type.name"));
 console.log(prop_access(prairie, "animal.gender"));
 
-console.log(verlan("Hello world"));
+console.log(verlan(" "));
 console.log(yoda("Hello world"));
 
 console.log(vig('wikipedia', 'crypto'));
