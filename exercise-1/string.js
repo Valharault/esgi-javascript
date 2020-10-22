@@ -14,7 +14,7 @@ function capitalize(chaine) {
 
 function camelCase(chaine) {
     if (typeof chaine !== "string" || chaine === "") return "";
-    return capitalize(chaine).split(" ").join("");
+    return capitalize(chaine).replace('_','').split(" ").join("");
 }
 
 function snake_case(chaine) {
@@ -61,7 +61,7 @@ function verlan(chaine) {
     for (const element of chaine.split(" ")) {
         output += element.split("").reverse().join("") + " ";
     }
-    return output;
+    return output.trim();
 }
 
 function yoda(chaine) {
