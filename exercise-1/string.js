@@ -5,7 +5,7 @@ function ucfirst(chaine) {
 
 function capitalize(chaine) {
     if (typeof chaine !== "string" || chaine === "") return "";
-    let string = chaine.toLowerCase().split(" ");
+    let string = chaine.toLowerCase().replace('_',' ').split(" ");
     for (let i = 0; i < string.length; i++) {
         string[i] = ucfirst(string[i]);
     }
@@ -102,7 +102,7 @@ console.log(leet("anaconda"));
 console.log(prop_access(prairie, "animal.type.name"));
 console.log(prop_access(prairie, "animal.gender"));
 
-console.log(verlan(" "));
+console.log(verlan("Hello world"));
 console.log(yoda("Hello world"));
 
 console.log(vig('wikipedia', 'crypto'));
