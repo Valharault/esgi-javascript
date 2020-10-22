@@ -5,16 +5,12 @@ function ucfirst(chaine) {
 
 function capitalize(chaine) {
     if (typeof chaine !== "string" || chaine === "") return "";
-    let string = chaine.toLowerCase().split(" ");
-    for (let i = 0; i < string.length; i++) {
-        string[i] = ucfirst(string[i]);
-    }
-    return string.join(" ");
+    return chaine.toLowerCase().split(" ").map(word => ucfirst(word)).join(" ")
 }
 
 function camelCase(chaine) {
     if (typeof chaine !== "string" || chaine === "") return "";
-    return capitalize(chaine).replace('_','').split(" ").join("");
+    return capitalize(chaine).split(" ").join("");
 }
 
 function snake_case(chaine) {
@@ -43,7 +39,7 @@ function leet(chaine) {
 }
 
 function prop_access(object, path) {
-    if (typeof object !== "object") return "";
+    if (typeof object !== "object" || object === null) return object;
     if (typeof path !== "string" || path === "" || path === null) return object;
     let result = object;
     for (const element of path.split(".")) {
@@ -99,8 +95,7 @@ console.log(camelCase("ToggleCase is_the coolest"));
 console.log(snake_case("hello world"));
 console.log(leet("anaconda"));
 
-console.log(prop_access(prairie, "animal.type.name"));
-console.log(prop_access(prairie, "animal.gender"));
+console.log(prop_access(null, "animal.type.name"));
 
 console.log(verlan("Hello world"));
 console.log(yoda("Hello world"));
