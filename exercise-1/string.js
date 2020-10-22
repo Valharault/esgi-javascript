@@ -14,7 +14,7 @@ function capitalize(chaine) {
 
 function camelCase(chaine) {
     if (typeof chaine !== "string" || chaine === "") return "";
-    return capitalize(chaine).split(" ").join("");
+    return capitalize(chaine).replace('_','').split(" ").join("");
 }
 
 function snake_case(chaine) {
@@ -95,7 +95,7 @@ const prairie = {
 
 console.log(ucfirst("hello world"))
 console.log(capitalize("hello world"));
-console.log(camelCase("hello world"));
+console.log(camelCase("ToggleCase is_the coolest"));
 console.log(snake_case("hello world"));
 console.log(leet("anaconda"));
 
