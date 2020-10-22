@@ -39,14 +39,22 @@ function leet(chaine) {
 }
 
 function prop_access(object, path) {
-    if (typeof object !== "object" || object === null) return path + " not exist";
-    if (typeof path !== "string" || path === "" || path === null) return object;
+    if (typeof path !== "string" || path === "" || typeof object !== "object") return object;
+    if (object === null) {
+        console.log(path + ' not exist');
+        return false;
+    }
+    let items = path.split(".");
     let result = object;
-    for (const element of path.split(".")) {
-        if (!(element in result)) {
-            return path + " not exist";
+    let buildPath = "";
+    for(element in items) {
+        result = result[items[element]];
+        if(element > 0) buildPath += ".";
+        buildPath += items[element];
+        if(result === undefined || result === null) {
+            console.log(`${buildPath} not exist`);
+            return false;
         }
-        result = result[element];
     }
     return result;
 }
@@ -96,7 +104,7 @@ console.log(camelCase("ToggleCase is_the coolest"));
 console.log(snake_case("hello world"));
 console.log(leet("anaconda"));
 
-console.log(prop_access(null, "animal.gender"));
+console.log(prop_access(null, "animal.type.name"));
 
 console.log(verlan("Hello world"));
 console.log(yoda("Hello world"));
