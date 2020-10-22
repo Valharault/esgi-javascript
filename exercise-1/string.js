@@ -53,6 +53,7 @@ function prop_access(object, path) {
 
 function verlan(chaine) {
     if (typeof chaine !== "string" || chaine === "") return "";
+    if (typeof chaine !== "string" || chaine === " ") return " ";
     let output = "";
     for (const element of chaine.split(" ")) {
         output += element.split("").reverse().join("") + " ";
