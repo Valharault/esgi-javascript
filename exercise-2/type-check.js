@@ -1,12 +1,5 @@
 function type_check_v1(arg, type) {
     switch (typeof arg) {
-        case "symbol":
-        case "number":
-        case "string":
-        case "boolean":
-        case "undefined":
-        case "function":
-            return type === typeof arg;
         case "object":
             switch (type) {
                 case "null":
@@ -16,8 +9,9 @@ function type_check_v1(arg, type) {
                 default:
                     return arg !== null && !Array.isArray(arg);
             }
+        default:
+            return arg === type;
     }
-    return typeof arg === type;
 }
 
 function type_check_v2(arg, object) {
